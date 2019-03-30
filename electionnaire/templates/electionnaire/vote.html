@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container" style="padding: 50px; background-color: white;">
+	<h4 style="text-align: center;">Select candidate and click on the SUBMIT button at the bottom</h4>
+	<hr>
+
+	<!-- for loop starts here -->
+    <div class="row">
+    	<div class="col-sm-3">
+    		<p style="text-align: center;">{ Candidate Name }</p>
+    	</div>
+    	<div class="col-sm-3">
+    		<p style="text-align: center;">{ Party Name }</p>
+    	</div>
+    	<div class="col-sm-3">
+    		<img src="{% static 'img/congress.jpg' %}" width="50px" height="50px">
+    	</div>
+    	<div class="col-sm-3">
+    		<input type="radio" name="vote">VOTE
+    	</div>
+    </div>
+    <br>
+
+    <!-- endfor -->
+    <div class="row">
+    	<div class="col-sm-3">
+    		<p style="text-align: center;">{ Candidate Name }</p>
+    	</div>
+    	<div class="col-sm-3">
+    		<p style="text-align: center;">{ Party Name }</p>
+    	</div>
+    	<div class="col-sm-3">
+    		<img src="{% static 'img/jds.jpeg' %}" width="50px" height="50px">
+    	</div>
+    	<div class="col-sm-3">
+    		<input type="radio" name="vote">VOTE
+    	</div>
+    </div>
+    <br>
+    <div class="row">
+    	<div class="col-sm-3">
+    		<p style="text-align: center;">{ Candidate Name }</p>
+    	</div>
+    	<div class="col-sm-3">
+    		<p style="text-align: center;">{ Party Name }</p>
+    	</div>
+    	<div class="col-sm-3">
+    		<img src="{% static 'img/bjp.png' %}" width="50px" height="50px">
+    	</div>
+    	<div class="col-sm-3">
+    		<input type="radio" name="vote">VOTE
+    	</div>
+    </div>
+    <br>
+
+    <div class="row">
+    	<div class="col-sm-3">
+    		<p style="text-align: center;">{ Candidate Name }</p>
+    	</div>
+    	<div class="col-sm-3">
+    		<p style="text-align: center;">{ Party Name }</p>
+    	</div>
+    	<div class="col-sm-3">
+    		<img src="{% static 'img/congress.jpg' %}" width="50px" height="50px">
+    	</div>
+    	<div class="col-sm-3">
+    		<input type="radio" name="vote">VOTE
+    	</div>
+    </div>
+    <br>
+    
+     <a href="../" type="submit" class="block btn btn-success">Click here to submit your vote</a> 
+</div>
+{% endblock %}

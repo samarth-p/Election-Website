@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container" style="padding-left: 450px; padding-top: 100px;">  
+  <form action="" method="POST" class="content">
+    <h3>Enter Login Details</h3>
+    <fieldset class="linesplit">
+      <input placeholder="Voter ID Number" type="text" required>
+    </fieldset>
+    <fieldset class="linesplit">
+      <input placeholder="Aadhar Card Number" type="text" required>
+    </fieldset>
+    <fieldset class="linesplit">
+      <input placeholder="Phone Number" type="tel" required>
+    </fieldset>
+    <fieldset class="linesplit">
+      <input placeholder="Email Address" type="email" required>
+    </fieldset>
+    <fieldset class="linesplit">
+      <input placeholder="Constituency" type="text" required>
+    </fieldset>
+    <a href="confirm/" class="btn btn-info">Login</a>
+    <br><br>
+    <p>Are you ECI personnel? <a href="eci/">Login here</a></p>
+
+  </form>
+</div>
+
+{% endblock %}

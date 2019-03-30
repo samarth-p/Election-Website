@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container" style="padding-left: 450px; padding-top: 100px;">  
+  <form action="" method="POST" class="content" style="height: 350px;">
+    <h3>Enter Login Details</h3>
+    <fieldset class="linesplit">
+      <input placeholder="ECI personnel ID" type="text" required>
+    </fieldset>
+    <fieldset class="linesplit">
+      <input placeholder="Password" type="text" required>
+    </fieldset>
+    <br>
+    <a href="../../loggedIn_eci/" class="btn btn-info">Login</a>
+
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+	<div class="container" style="background-color: white; padding: 10px;">
+		<div class="row">
+			<div class="col-sm-2">
+				<img src="{% static 'img/ECI_Logo.png' %}" height="50px">
+			</div>
+			<div class="col-sm-8" >
+				<h3 style="text-align: center; padding-top: 10px;">The Election Commission of India</h3>
+				<marquee  direction="left">Look at the text go left!! Woohoo! Its going left...The next election is on 24/04/2019</marquee>
+			</div>
+			<div class="col-sm-2">
+				<p style="float: right;">Hi { username }</p>
+				<a href="../" class="btn btn-info" style="float: right;">Logout</a>
+			</div>
+			
+		</div>
+		<hr>
+
+		
+		<!-- in a for loop -->
+		<div class="row">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10" style="padding: 30px; ">
+				<div class="container" style="padding-left: 80px;">
+					<img src="{% static 'img/bgimg.jpg' %}" width="700px" height="400px">
+					<!--  endfor -->
+				</div>
+				<h3 style="padding-top: 20px;padding-left: 80px;">Here goes the caption</h3>
+				<p style="padding-top: 20px;padding-left: 80px;">User Severity : <span style="color: red;">{ severity level }</span><br>
+				ECI Severity : <span style="color: red;">{ severity level }</span></p>
+				<button class="btn btn-success" style="margin-left: 80px;">Report</button>
+				<button class="btn btn-danger">Delete</button>
+			</div>
+		</div>
+		<br>
+
+		<!-- for loop ends here -->
+
+		<div class="row">
+			<div class="col-sm-1"></div>
+			<div class="col-sm-10" style="padding: 30px; ">
+				<div class="container" style="padding-left: 80px;">
+					<img src="{% static 'img/img1.png' %}" width="700px" height="400px">
+					<!--  endfor -->
+				</div>
+				<h3 style="padding-top: 20px;padding-left: 80px;">Here goes the caption</h3>
+				<p style="padding-top: 20px;padding-left: 80px;">User Severity : <span style="color: red;">{ severity level }</span><br>
+				ECI Severity : <span style="color: red;">{ severity level }</span></p>
+				<button class="btn btn-success" style="margin-left: 80px;">Report</button>
+				<button class="btn btn-danger">Delete</button>
+			</div>
+		</div>
+		<br>
+
+
+
+	</div>
+
+{% endblock %}
