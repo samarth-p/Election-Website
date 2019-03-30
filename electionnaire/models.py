@@ -22,7 +22,7 @@ class User(AbstractUser):
 
 class Party(models.Model):
     name = models.CharField(max_length=50)
-    symbols = models.ImageField(upload_to='symbols')
+    symbols = models.ImageField(upload_to='symbols/')
 
     def __str__(self):
         return self.name
@@ -38,7 +38,7 @@ class Constituency(models.Model):
 class Candidate(models.Model):
     id = models.CharField(primary_key='True', max_length=100)
     name = models.CharField(max_length=50)
-    photo = models.ImageField(upload_to='candidates')
+    photo = models.ImageField(upload_to='candidates/')
     party = models.ForeignKey(Party, on_delete=models.CASCADE)
     constituency = models.ForeignKey(Constituency, on_delete=models.CASCADE)
 
@@ -70,7 +70,7 @@ class Voter(models.Model):
 
 
 class Post(models.Model):
-    image = models.ImageField(upload_to='posts')
+    image = models.ImageField(upload_to='posts/')
     voter = models.ForeignKey(Voter, on_delete=models.CASCADE)
     post_time = models.DateTimeField(default=timezone.now, blank=False)
     caption = models.CharField(max_length=200)
