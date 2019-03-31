@@ -7,37 +7,23 @@
 	<hr>
 
 	<!-- for loop starts here -->
-	<form action="{% url 'process_vote' voter_id %}" method="post">
-	{% csrf_token %}
 	{% for candidate in candidate_list %}
 		<div class="row">
-		<div class="col-sm-2">
-            <img src="{{ candidate.photo.url }}" width="50px" height="50px">
-        </div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<p style="text-align: center;">{{ candidate.name }}</p>
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<p style="text-align: center;">{{ candidate.party.name }}</p>
 			</div>
-			<div class="col-sm-2">
+			<div class="col-sm-3">
 				<img src="{{ candidate.party.symbols.url }}" width="50px" height="50px">
 			</div>
-			<div class="col-sm-2">
-				<label class="btn btn-outline-danger">
-				<input type="radio" name="vote" id="candidate{{forloop.counter}}" value="{{candidate.id}}">VOTE
-				</label>
+			<div class="col-sm-3">
 			</div>
 		</div>
     <br>
 
-
-
-
 	{% empty %}
 			<p>No candidate</p>
-	{% endfor %}
-
-    
-    <input class="btn btn-success" type="submit" value="Submit"></div>
+	{% endfor %} 
 {% endblock %}

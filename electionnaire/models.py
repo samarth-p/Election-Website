@@ -24,6 +24,14 @@ class Party(models.Model):
     name = models.CharField(max_length=50)
     symbols = models.ImageField(upload_to='symbols/')
 
+    @property
+    def total_votes(self):
+        total = 0
+        candidate_list = self.candidate_set.all()
+        for candidate in candidate_list:
+            total += candidate.votes
+        return total
+
     def __str__(self):
         return self.name
 

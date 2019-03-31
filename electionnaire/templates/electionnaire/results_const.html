@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container" style="padding: 50px; background-color: white;">
+	<h4 style="text-align: center;">Results by constituency</h4>
+	<hr>
+
+	<!-- for loop starts here -->
+    {% for candidate in candidate_list %}
+        <div class="row">
+            <div class="col-sm-2">
+                <b><p style="text-align: center;">{{ forloop.counter }}</p></b>
+            </div>
+            <div class="col-sm-2">
+                <img src="{{ candidate.photo.url }}" width="75px" height="75px">
+            </div>
+            <div class="col-sm-2">
+                <b><p style="text-align: center;">{{ candidate.name }}</p></b>
+            </div>
+            <div class="col-sm-2">
+                <b><p style="text-align: center;">{{ candidate.party.name }}</p></b>
+            </div>
+            <div class="col-sm-2">
+                <img src="{{ candidate.party.symbols.url }}" width="75px" height="75px">
+            </div>
+            <div class="col-sm-2">
+                <b><p style="text-align: center;">{{ candidate.votes }}</p></b>
+            </div>
+        </div>
+        <br>
+    {% endfor %}
+    <!-- endfor  -->
+
+
+</div>
+{% endblock %}

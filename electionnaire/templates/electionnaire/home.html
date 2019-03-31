@@ -9,17 +9,19 @@
 			</div>
 			<div class="col-sm-8" >
 				<h3 style="text-align: center; padding-top: 10px;">The Election Commission of India</h3>
-				<marquee  direction="left">Look at the text go left!! Woohoo! Its going left...The next election is on 24/04/2019</marquee>
+				<marquee  direction="left" scrollamount="5">Citizens of India can report any incidents and upload photos/videos below. Use the login button in the top-right to vote.</marquee>
 			</div>
 			<div class="col-sm-2">
-				<a href="login/" class="btn btn-info" style="float: right;">Login</a>
+				<a href="login/" class="btn btn-secondary" style="float: right;">Login</a>
 			</div>
 			
 		</div>
 		<hr>
 
 		<div class="row">
-			<div class="col-sm-1"></div>
+			<div class="col-sm-1">
+				<button class="openbtn" onclick="openNav()">&#9776;</button>
+			</div>
 			<div class="col-sm-10" style="padding: 30px; ">
 				<div class="container" style="padding: 30px; border: solid 1px grey; border-radius: 15px;">
 					<form method="post" enctype="multipart/form-data">
@@ -32,7 +34,7 @@
 				    <input type="file" name="myfile" required="">
 				    <input type="text" name="" placeholder="location" required>
 				    
-				    <a href="login/" type="submit" class="btn btn-info">Submit</a>
+				    <a href="login/" type="submit" class="btn btn-secondary">Submit</a>
 				    
 					</form>
 					<!--  endfor -->
@@ -40,6 +42,25 @@
 			</div>
 		</div>
 		<br>
+
+		<div id="mySidepanel" class="sidepanel">
+		  
+		  <h3 style="text-align: center; color: #3b4483;">News Bulletin</h3>
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <hr><br>
+		  <marquee direction="up" scrollamount="2" loop="infinite" style=" color: #3b4483; height: 450px;">
+		  	<ul>
+		  		<li>Community Radio Stations across the country assure to contribute their best for voter education & awareness. 120 Community Radios attend SVEEP workshop of ECI at IIIDEM</li>
+		  		<hr>
+		  		<li>General Election to House of People and Certain Assemblies- Enforcement of Model Code of Conduct</li>
+		  		<hr>
+		  		<li>ECI collaborates with Indian Railways for Voter Awareness Campaign; Four long distance Trains to carry voter awareness messages 1.0.0</li>
+		  		<hr>
+		  		<li>Provisions of Section 126 of the Representation of the People Act, 1951- prohibition of election campaign activities through public meetings, processions, etc. </li>
+		  	</ul></marquee>
+		</div>
+
+		
 
 		
 		<!-- in a for loop -->
@@ -55,7 +76,7 @@
 				ECI Severity : <span style="color: red;">{ severity level }</span></p>
 			</div>
 		</div>
-		<br>
+		<hr>
 
 		<!-- for loop ends here -->
 
@@ -71,7 +92,7 @@
 				ECI Severity : <span style="color: red;">{ severity level }</span></p>
 			</div>
 		</div>
-		<br>
+		<hr>
 
 
 

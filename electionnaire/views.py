@@ -67,3 +67,30 @@ def eci_login(request):
 
 def loggedIn_eci(request):
 	return render(request, 'electionnaire/loggedIn_eci.html')
+
+
+def const(request):
+    const_list = Constituency.objects.all()
+    return render(request, 'electionnaire/results_1.html', {'const_list': const_list})
+
+
+def const_result(request, const_id):
+    const = get_object_or_404(Constituency, id=const_id)
+    candidate_list = const.candidate_set.all()
+    return render(request, 'electionnaire/results_2.html', {'candidate_list': candidate_list})
+
+
+def results(request):
+	return render(request, 'electionnaire/results.html')
+
+
+def results_const(request, const_id):
+    const = get_object_or_404(Constituency, id=const_id)
+    candidate_list = const.candidate_set.all()
+    candidate_list = sorted(candidate_list, key=lambda x: x.votes, reverse=True)
+    return render(request, 'electionnaire/results_const.html', {'candidate_list': candidate_list})
+
+def results_party(request):
+    party_list = Party.objects.all()
+    party_list = sorted(party_list, key=lambda x: x.total_votes, reverse=True)
+    return render(request, 'electionnaire/results_party.html', {'party_list': party_list})
