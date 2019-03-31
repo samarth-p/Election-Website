@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container" style="padding: 50px; background-color: white;">
+	<h4 style="text-align: center;">Results by constituency</h4>
+	<hr>
+
+	<!-- for loop starts here -->
+    <div class="row">
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Constituency Name }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <img src="{% static 'img/c4_SP_akhilesh.jpg' %}" width="75px" height="75px">
+        </div>
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Candidate Name }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Party Name }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <img src="{% static 'img/congress.jpg' %}" width="75px" height="75px">
+        </div>
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ No of votes }</p></b>
+        </div>
+    </div>
+    <br>
+
+    <!-- endfor  -->
+    <div class="row">
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Constituency Name }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <img src="{% static 'img/c4_SP_akhilesh.jpg' %}" width="75px" height="75px">
+        </div>
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Candidate Name }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Party Name }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <img src="{% static 'img/congress.jpg' %}" width="75px" height="75px">
+        </div>
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ No of votes }</p></b>
+        </div>
+    </div>
+    <br>
+
+
+</div>
+{% endblock %}

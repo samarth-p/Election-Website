@@ -7,31 +7,95 @@
 	<hr>
 
 	<!-- for loop starts here -->
-	<form action="{% url 'process_vote' voter_id %}" method="post">
-	{% csrf_token %}
-	{% for candidate in candidate_list %}
-		<div class="row">
-			<div class="col-sm-3">
-				<p style="text-align: center;">{{ candidate.name }}</p>
-			</div>
-			<div class="col-sm-3">
-				<p style="text-align: center;">{{ candidate.party.name }}</p>
-			</div>
-			<div class="col-sm-3">
-				<img src="{{ candidate.party.symbols.url }}" width="50px" height="50px">
-			</div>
-			<div class="col-sm-3">
-				<label class="btn btn-outline-danger">
-				<input type="radio" name="vote" id="candidate{{forloop.counter}}" value="{{candidate.id}}">VOTE
-				</label>
-			</div>
-		</div>
+    <div class="row">
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Sl No. }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <img src="{% static 'img/c4_SP_akhilesh.jpg' %}" width="50px" height="50px">
+        </div>
+    	<div class="col-sm-2">
+    		<b><p style="text-align: center;">{ Candidate Name }</p></b>
+    	</div>
+    	<div class="col-sm-2">
+    		<b><p style="text-align: center;">{ Party Name }</p></b>
+    	</div>
+    	<div class="col-sm-2">
+    		<img src="{% static 'img/congress.jpg' %}" width="50px" height="50px">
+    	</div>
+    	<div class="col-sm-2">
+    		<input type="radio" name="vote">VOTE
+    	</div>
+    </div>
     <br>
 
-	{% empty %}
-			<p>No candidate</p>
-	{% endfor %}
+    <!-- endfor -->
+    <div class="row">
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Sl No. }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <img src="{% static 'img/c4_SP_akhilesh.jpg' %}" width="50px" height="50px">
+        </div>
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Candidate Name }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Party Name }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <img src="{% static 'img/congress.jpg' %}" width="50px" height="50px">
+        </div>
+        <div class="col-sm-2">
+            <input type="radio" name="vote">VOTE
+        </div>
+    </div>
+    <br>
 
+    <div class="row">
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Sl No. }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <img src="{% static 'img/c4_SP_akhilesh.jpg' %}" width="50px" height="50px">
+        </div>
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Candidate Name }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Party Name }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <img src="{% static 'img/congress.jpg' %}" width="50px" height="50px">
+        </div>
+        <div class="col-sm-2">
+            <input type="radio" name="vote">VOTE
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Sl No. }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <img src="{% static 'img/c4_SP_akhilesh.jpg' %}" width="50px" height="50px">
+        </div>
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Candidate Name }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <b><p style="text-align: center;">{ Party Name }</p></b>
+        </div>
+        <div class="col-sm-2">
+            <img src="{% static 'img/congress.jpg' %}" width="50px" height="50px">
+        </div>
+        <div class="col-sm-2">
+            <input type="radio" name="vote">VOTE
+        </div>
+    </div>
+    <br>
     
-    <input class="btn btn-success" type="submit" value="Submit"></div>
+     <a href="../" type="submit" class="block btn btn-success">Click here to submit your vote</a> 
+</div>
 {% endblock %}

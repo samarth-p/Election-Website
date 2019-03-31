@@ -9,11 +9,13 @@
 			</div>
 			<div class="col-sm-8" >
 				<h3 style="text-align: center; padding-top: 10px;">The Election Commission of India</h3>
-				<marquee  direction="left">Look at the text go left!! Woohoo! Its going left...The next election is on 24/04/2019</marquee>
+				<marquee  direction="left" scrollamount="5">Citizens of India can report any incidents and upload photos/videos below. Use the login button in the top-right to vote.</marquee>
 			</div>
 			<div class="col-sm-2">
 				<p style="float: right;">Hi { username }</p>
-				<a href="../" class="btn btn-info" style="float: right;">Logout</a>
+				<a href="results/" class="btn btn-secondary" style="float: right;">RESULTS</a>
+				<a href="../" class="btn btn-secondary" style="float: right;margin-right: 10px;">Logout</a>
+				
 			</div>
 			
 		</div>
@@ -22,7 +24,9 @@
 		
 		<!-- in a for loop -->
 		<div class="row">
-			<div class="col-sm-1"></div>
+			<div class="col-sm-1">
+				<button class="openbtn" onclick="openNav()">&#9776;</button>
+			</div>
 			<div class="col-sm-10" style="padding: 30px; ">
 				<div class="container" style="padding-left: 80px;">
 					<img src="{% static 'img/bgimg.jpg' %}" width="700px" height="400px">
@@ -36,6 +40,24 @@
 			</div>
 		</div>
 		<br>
+
+
+		<div id="mySidepanel" class="sidepanel">
+		  
+		  <h3 style="text-align: center; color: #3b4483;">News Bulletin</h3>
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <hr><br>
+		  <marquee direction="up" scrollamount="2" loop="infinite" style=" color: #3b4483; height: 450px;">
+		  	<ul>
+		  		<li>Community Radio Stations across the country assure to contribute their best for voter education & awareness. 120 Community Radios attend SVEEP workshop of ECI at IIIDEM</li>
+		  		<hr>
+		  		<li>General Election to House of People and Certain Assemblies- Enforcement of Model Code of Conduct</li>
+		  		<hr>
+		  		<li>ECI collaborates with Indian Railways for Voter Awareness Campaign; Four long distance Trains to carry voter awareness messages 1.0.0</li>
+		  		<hr>
+		  		<li>Provisions of Section 126 of the Representation of the People Act, 1951- prohibition of election campaign activities through public meetings, processions, etc. </li>
+		  	</ul></marquee>
+		</div>
 
 		<!-- for loop ends here -->
 
@@ -53,7 +75,9 @@
 				<button class="btn btn-danger">Delete</button>
 			</div>
 		</div>
-		<br>
+		<hr>
+
+		
 
 
 

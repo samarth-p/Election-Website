@@ -41,7 +41,6 @@ class Candidate(models.Model):
     photo = models.ImageField(upload_to='candidates/')
     party = models.ForeignKey(Party, on_delete=models.CASCADE)
     constituency = models.ForeignKey(Constituency, on_delete=models.CASCADE)
-    votes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
