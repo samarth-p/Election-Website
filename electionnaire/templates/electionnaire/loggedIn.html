@@ -1,7 +1,26 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+	
 
+<script>
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  //window.alert(position.coords.latitude);
+  document.getElementById("hid_lat").value = position.coords.latitude;
+  document.getElementById("hid_long").value = position.coords.longitude;
+  document.getElementById("submit").disabled = false;
+  //document.getElementById("lol").submit();  
+}
+</script>
+	
 	<div class="container" style="background-color: white; padding: 10px;">
 		<div class="row">
 			<div class="col-sm-2">
@@ -9,32 +28,36 @@
 			</div>
 			<div class="col-sm-8" >
 				<h3 style="text-align: center; padding-top: 10px;">The Election Commission of India</h3>
-				<marquee  direction="left">Look at the text go left!! Woohoo! Its going left...The next election is on 24/04/2019</marquee>
+				<marquee  direction="left" scrollamount="5">Citizens of India can report any incidents and upload photos/videos below. Use the login button in the top-right to vote.</marquee>
 			</div>
 			<div class="col-sm-2">
-				<p style="float: right;">Hi { username }</p>
-				<a href="../" class="btn btn-info" style="float: right;">Logout</a>
-				<a href="vote/" class="btn btn-info" style="float: right; margin-right: 10px;">VOTE</a>
+				<p style="float: right;">Hi {{voter.name}}</p>
+				<a href="{% url 'electionnaire:home' %}" class="btn btn-secondary" style="float: right;">Logout</a>
+				<a href="{% url 'electionnaire:vote' voter.voter_id %}" class="btn btn-secondary" style="float: right; margin-right: 10px;">VOTE</a>
 			</div>
 			
 		</div>
 		<hr>
 
-		<div class="row">
-			<div class="col-sm-1"></div>
+		<div class="row">		
+			<div class="col-sm-1">
+				<button class="openbtn" onclick="openNav()">&#9776;</button>
+			</div>
 			<div class="col-sm-10" style="padding: 30px; ">
 				<div class="container" style="padding: 30px; border: solid 1px grey; border-radius: 15px;">
-					<form method="post" enctype="multipart/form-data">
+					<form id = "lol" action = "{% url 'electionnaire:upload' %}" method="post" enctype="multipart/form-data">
 				    {% csrf_token %}
 				    
 				    <p>Post here</p>
 
-					<input type="textarea" class="boxsizingBorder" name="" placeholder="Type here..." required>
-					
-				    <input type="file" name="myfile" required="">
-				    <input type="text" name="" placeholder="location" required>
-				    
-				    <a href="success/" type="submit" class="btn btn-info">Submit</a>
+					{{form.as_p}}				   
+				    <p>The location of this submission will also be recorded for administrative purposes.</p>
+				    <br>
+				    <input type="text" class="in" name="latitude" id="hid_lat" value="" readonly="readonly" required>
+				    <input type="text" class="in" name="longitude" id="hid_long" value="" readonly="readonly" required>
+				    <button onclick="getLocation()" type="button" class="btn btn-secondary">Get Location</button><br>
+				    <p>Enter severity level  <span style="color: red;"><input type="number" min=1 max=5 placeholder="" name="severity" required></span></p><br><br>
+				    <button type="submit" id="submit" class="btn btn-secondary" disabled>Submit</button>
 				    
 					</form>
 					<!--  endfor -->
@@ -43,21 +66,40 @@
 		</div>
 		<br>
 
-		
+		<!--<button onclick="getLocation()">Get Location</button>
+		<p id="demo"></p>-->
+		<div id="mySidepanel" class="sidepanel">
+		  
+		  <h3 style="text-align: center; color: #3b4483;">News Bulletin</h3>
+		  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		  <hr><br>
+		  <marquee direction="up" scrollamount="2" loop="infinite" style=" color: #3b4483; height: 450px;">
+		  	<ul>
+		  		<li>Community Radio Stations across the country assure to contribute their best for voter education & awareness. 120 Community Radios attend SVEEP workshop of ECI at IIIDEM</li>
+		  		<hr>
+		  		<li>General Election to House of People and Certain Assemblies- Enforcement of Model Code of Conduct</li>
+		  		<hr>
+		  		<li>ECI collaborates with Indian Railways for Voter Awareness Campaign; Four long distance Trains to carry voter awareness messages 1.0.0</li>
+		  		<hr>
+		  		<li>Provisions of Section 126 of the Representation of the People Act, 1951- prohibition of election campaign activities through public meetings, processions, etc. </li>
+		  	</ul></marquee>
+		</div>
 		<!-- in a for loop -->
+		{% for i in posts %}
 		<div class="row">
 			<div class="col-sm-1"></div>
 			<div class="col-sm-10" style="padding: 30px; ">
 				<div class="container" style="padding-left: 80px;">
-					<img src="{% static 'img/bgimg.jpg' %}" width="700px" height="400px">
+					<img src="{{ i.image.url }}" width="700px" height="400px">
 					<!--  endfor -->
 				</div>
-				<h3 style="padding-top: 20px;padding-left: 80px;">Here goes the caption</h3>
-				<p style="padding-top: 20px;padding-left: 80px;">User Severity : <span style="color: red;">{ severity level }</span><br>
-				ECI Severity : <span style="color: red;">{ severity level }</span></p>
+				<h3 style="padding-top: 20px;padding-left: 80px;">{{i.caption}}</h3>
+				<p style="padding-top: 20px;padding-left: 80px;">User Severity : <span style="color: red;">{{i.severity}}</span><br>
+				
 			</div>
 		</div>
 		<br>
+		{% endfor %}
 
 		<!-- for loop ends here -->
 
@@ -68,9 +110,7 @@
 					<img src="{% static 'img/img1.png' %}" width="700px" height="400px">
 					<!--  endfor -->
 				</div>
-				<h3 style="padding-top: 20px;padding-left: 80px;">Here goes the caption</h3>
-				<p style="padding-top: 20px;padding-left: 80px;">User Severity : <span style="color: red;">{ severity level }</span><br>
-				ECI Severity : <span style="color: red;">{ severity level }</span></p>
+				<h3 style="padding-top: 20px;padding-left: 80px;">The worlds largest democracy!</h3>				
 			</div>
 		</div>
 		<br>

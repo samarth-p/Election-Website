@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+    <div class="container" style="background-color: white; width: 500px; height: 250px; padding: 50px; margin-top: 50px;">
+    	<h3 class="linesplit">Check results!</h3><hr><br>
+      	<a href="{% url 'electionnaire:const' %}" type="submit" class="btn btn-secondary" style="float: left;">By Constituency</a>
+      	<a href="{% url 'electionnaire:result_party' %}" type="submit" class="btn btn-secondary" style="float: right;">By Party</a>
+    </div>
+</div>
+{% endblock %}

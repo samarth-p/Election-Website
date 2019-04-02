@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<ul>
+    {% for const in const_list %}
+        <li><a href="{% url 'electionnaire:result_const' const.id %}"> {{ const.name }} </a> </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}

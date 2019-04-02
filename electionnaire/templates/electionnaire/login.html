@@ -3,21 +3,23 @@
 {% block content %}
 
 <div class="container" style="padding-left: 450px; padding-top: 100px;">  
-  <form action="" method="POST" class="content">
+  <form action="{% url 'electionnaire:login' %}" method="POST" class="content">
+    {% csrf_token %}
     <h3>Enter Login Details</h3>
+    <p>{{error}}</p>
     <fieldset class="linesplit">
-      <input placeholder="Voter ID Number" type="text" required>
+      <input placeholder="Voter ID Number" type="text" name = "voter_id" required>
     </fieldset>
     <fieldset class="linesplit">
-      <input placeholder="Aadhar Card Number" type="text" required>
+      <input placeholder="Aadhar Card Number" type="text" name = "aadhar" required>
     </fieldset>
     <fieldset class="linesplit">
-      <input placeholder="Phone Number" type="tel" required>
+      <input placeholder="Phone Number" type="tel" name = "phone" required>
     </fieldset>
     <br>
-    <button href="confirm/" class="btn btn-info" type="submit">Login</button>
+    <button class="btn btn-info" type="submit">Login</button>
     <br><br>
-    <p>Are you ECI personnel? <a href="eci/">Login here</a></p>
+    <p>Are you ECI personnel? <a href="{% url 'login' %}"> Login here</a></p>
 
   </form>
 </div>

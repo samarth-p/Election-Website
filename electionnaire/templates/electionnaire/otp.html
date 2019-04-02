@@ -4,17 +4,17 @@
 <div class="container">
     <div class="container" style="background-color: white; width: 400px; height: 400px; padding: 50px; margin-top: 50px;">
       <h3 class="linesplit">Enter OTP : </h3><br>
-      <input class="linesplit" type="text" name=""><br><br><br>
-      <form method="post">
+      <form method="post" action="{% url 'electionnaire:verify' voter_id %}">
+      <input class="linesplit" type="text" name="otp"><br><br><br>
         {% csrf_token %}
         {{ form.as_p }}
 
         <script src='https://www.google.com/recaptcha/api.js'></script>
         <div class="g-recaptcha" data-sitekey="6LeGC5sUAAAAADeJk8FpA6gJEdUTqP5ax8dyqxyh"></div>
 
+      <button type="submit" class="btn btn-info">Submit</a>
       </form>
       <br>
-      <a href="../../loggedIn/" type="submit" class="btn btn-info">Submit</a>
     </div>
 </div>
 {% endblock %}
