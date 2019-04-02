@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+
+<div class="container" style="padding: 50px; background-color: white;">
+    <h4 style="text-align: center;">Results by Party</h4>
+    <hr>
+
+    <!-- for loop starts here -->
+    {% for party in party_list %}
+        <div class="row">
+            <div class="col-sm-3">
+                <b><p style="text-align: center;">Sl No. {{forloop.counter}}</p></b>
+            </div>
+            <div class="col-sm-3">
+                <img src="{{ party.symbols.url }}" width="75px" height="75px">
+            </div>
+            <div class="col-sm-3">
+                <b><p style="text-align: center;">{{party.name}}</p></b>
+            </div>
+            <div class="col-sm-3">
+                <b><p style="text-align: center;">{{party.total_votes}}</p></b>
+            </div>
+
+        </div>
+        <br>
+    {% endfor %}
+    <!-- endfor  -->
+    
+
+    
+</div>
+{% endblock %}

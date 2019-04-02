@@ -24,6 +24,14 @@ class Party(models.Model):
     name = models.CharField(max_length=50)
     symbols = models.ImageField(upload_to='symbols/')
 
+    @property
+    def total_votes(self):
+        total = 0
+        candidate_list = self.candidate_set.all()
+        for candidate in candidate_list:
+            total += candidate.votes
+        return total
+
     def __str__(self):
         return self.name
 
@@ -41,6 +49,7 @@ class Candidate(models.Model):
     photo = models.ImageField(upload_to='candidates/')
     party = models.ForeignKey(Party, on_delete=models.CASCADE)
     constituency = models.ForeignKey(Constituency, on_delete=models.CASCADE)
+    votes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
@@ -82,3 +91,5 @@ class Post(models.Model):
         default=1,
         validators=[MaxValueValidator(5), MinValueValidator(1)]
      )
+    latitude = models.FloatField(blank=False,default=0.0)
+    longitude = models.FloatField(blank=False,default=0.0)
