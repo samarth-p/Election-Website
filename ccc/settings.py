@@ -25,7 +25,7 @@ SECRET_KEY = 'sqdg9l$)p(*fw$2x5_1@em7op^eix7che%bn!cslv_%$@ipln&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'electionnaire.User'
 
